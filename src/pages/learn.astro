@@ -1,0 +1,237 @@
+---
+import Layout from '../layouts/Layout.astro';
+import resourcesData from '../data/resources.json';
+import { difficulties } from '../types';
+
+const tutorials = resourcesData.tutorials;
+const categories = [
+  { id: 'getting-started', label: 'Getting Started', icon: '🚀' },
+  { id: 'advanced', label: 'Advanced', icon: '⚡' },
+  { id: 'integration', label: 'Integrations', icon: '🔗' }
+];
+---
+
+<Layout title="Learning Hub">
+  <section class="learn-hero">
+    <div class="container">
+      <h1>Learning Hub</h1>
+      <p>Tutorials and guides to help you get the most out of the developer tool</p>
+    </div>
+  </section>
+
+  <section class="learn-content section">
+    <div class="container">
+      <div class="categories-nav">
+        {categories.map(cat => (
+          <a href={`#${cat.id}`} class="category-nav-item">
+            <span class="cat-icon">{cat.icon}</span>
+            <span>{cat.label}</span>
+          </a>
+        ))}
+      </div>
+
+      {categories.map(cat => {
+        const catTutorials = tutorials.filter(t => t.category === cat.id);
+        if (catTutorials.length === 0) return null;
+        return (
+          <div class="tutorial-section" id={cat.id}>
+            <h2 class="section-title">
+              <span class="cat-icon">{cat.icon}</span>
+              {cat.label}
+            </h2>
+            <div class="tutorials-grid">
+              {catTutorials.map(tutorial => (
+                <a href={tutorial.url} class="tutorial-card card">
+                  <div class="tutorial-header">
+                    <span class={`badge badge-${tutorial.difficulty}`}>{tutorial.difficulty}</span>
+                    <span class="duration">{tutorial.duration}</span>
+                  </div>
+                  <h3>{tutorial.title}</h3>
+                  <p>{tutorial.description}</p>
+                  {tutorial.author && (
+                    <div class="tutorial-footer">
+                      <span class="author">by {tutorial.author}</span>
+                      <span class="start-btn">Start →</span>
+                    </div>
+                  )}
+                </a>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+
+      <div class="contribute-section">
+        <div class="contribute-card">
+          <h3>Want to contribute a tutorial?</h3>
+          <p>Share your knowledge with the community by creating a tutorial.</p>
+          <a href="/submit" class="btn btn-primary">Submit Tutorial</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .learn-hero {
+    padding: 80px 0 40px;
+    text-align: center;
+    background: 
+      radial-gradient(ellipse 60% 40% at 50% 0%, rgba(34, 211, 238, 0.1), transparent);
+  }
+
+  .learn-hero h1 {
+    margin-bottom: 12px;
+  }
+
+  .learn-hero p {
+    color: var(--text-secondary);
+  }
+
+  .categories-nav {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .category-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .category-nav-item:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  .cat-icon {
+    font-size: 1.25rem;
+  }
+
+  .tutorial-section {
+    margin-bottom: 64px;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tutorials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .tutorial-card {
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+    min-height: 200px;
+  }
+
+  .tutorial-card:hover {
+    color: inherit;
+  }
+
+  .tutorial-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .duration {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .tutorial-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+  }
+
+  .tutorial-card p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    flex: 1;
+  }
+
+  .tutorial-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .author {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .start-btn {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--primary);
+  }
+
+  .contribute-section {
+    margin-top: 48px;
+  }
+
+  .contribute-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 48px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(34, 211, 238, 0.1));
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+  }
+
+  .contribute-card h3 {
+    margin-bottom: 8px;
+  }
+
+  .contribute-card p {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    max-width: 400px;
+  }
+
+  @media (max-width: 640px) {
+    .categories-nav {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .category-nav-item {
+      justify-content: center;
+    }
+
+    .tutorials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contribute-card {
+      padding: 32px 24px;
+    }
+  }
+</style>
