@@ -181,6 +181,7 @@ code, pre {
 .badge-prompt { background: rgba(34, 211, 238, 0.2); color: var(--accent); }
 .badge-plugin { background: rgba(16, 185, 129, 0.2); color: var(--success); }
 .badge-instruction { background: rgba(245, 158, 11, 0.2); color: var(--warning); }
+.badge-workflow { background: rgba(139, 92, 246, 0.2); color: #8b5cf6; }
 
 .badge-beginner { background: rgba(16, 185, 129, 0.2); color: var(--success); }
 .badge-intermediate { background: rgba(245, 158, 11, 0.2); color: var(--warning); }
