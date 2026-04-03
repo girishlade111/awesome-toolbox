@@ -1,0 +1,89 @@
+---
+// BackToTop.astro - Back to top button component
+---
+
+<button id="back-to-top" class="back-to-top" aria-label="Back to top">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M18 15l-6-6-6 6"/>
+  </svg>
+</button>
+
+<style>
+  .back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: var(--shadow-glow);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 99;
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .back-to-top:hover {
+    background: var(--primary-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.3);
+  }
+
+  .back-to-top:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 640px) {
+    .back-to-top {
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+    }
+  }
+</style>
+
+<script>
+  const backToTopButton = document.getElementById('back-to-top');
+  let ticking = false;
+
+  function updateButtonVisibility() {
+    if (window.scrollY > 300) {
+      backToTopButton?.classList.add('visible');
+    } else {
+      backToTopButton?.classList.remove('visible');
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateButtonVisibility);
+      ticking = true;
+    }
+  });
+
+  backToTopButton?.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Initial check
+  updateButtonVisibility();
+</script>
