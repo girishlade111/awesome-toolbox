@@ -1,5 +1,5 @@
 import rss from '@astrojs/rss';
-import resourcesData from '../src/data/resources.json';
+import resourcesData from '../data/resources.json';
 
 export async function GET(context) {
   const siteUrl = context.site?.toString() || 'https://yourusername.github.io';
