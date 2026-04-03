@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import resourcesData from '../data/resources.json';
-import { categories } from '../types';
+import { categories, difficulties } from '../types';
+import { getCollection } from 'astro:content';
 
 const resources = resourcesData.resources.slice(0, 6);
-const featuredTutorials = resourcesData.tutorials.slice(0, 3);
+const allTutorials = await getCollection('tutorials');
+const featuredTutorials = allTutorials.slice(0, 3);
 
 const authorCounts: Record<string, { count: number; url: string }> = {};
 resourcesData.resources.forEach((r) => {
