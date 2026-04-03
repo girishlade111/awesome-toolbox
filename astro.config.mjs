@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://yourusername.github.io',
@@ -7,5 +8,7 @@ export default defineConfig({
   output: 'static',
   build: {
     format: 'file'
-  }
+  },
+  integrations: [sitemap()],
+  site: 'https://yourusername.github.io/devhub'
 });
