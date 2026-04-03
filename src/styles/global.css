@@ -28,6 +28,21 @@
   --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
+[data-theme="light"] {
+  --bg-deep: #f8f9fc;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f1f3f8;
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --accent: #0891b2;
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
+  --border: #e5e7eb;
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.1);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -44,6 +59,7 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
