@@ -1,7 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import resourcesData from '../data/resources.json';
-import { categories } from '../types';
+import Layout from '../../layouts/Layout.astro';
+import resourcesData from '../../data/resources.json';
+import { categories } from '../../types';
 
 export function getStaticPaths() {
   return resourcesData.resources.map((resource) => ({
