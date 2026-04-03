@@ -1,0 +1,220 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import resourcesData from '../../data/resources.json';
+
+export function getStaticPaths() {
+  const allTags = [...new Set(resourcesData.resources.flatMap(r => r.tags))];
+  
+  return allTags.map(tag => {
+    const taggedResources = resourcesData.resources.filter(r => r.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { tag, resources: taggedResources },
+    };
+  });
+}
+
+interface Props {
+  tag: string;
+  resources: typeof resourcesData.resources;
+}
+
+const { tag, resources } = Astro.props;
+
+// Sort by newest first
+const sortedResources = resources.sort((a, b) => 
+  new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime()
+);
+---
+
+<Layout 
+  title={`Resources tagged "${tag}"`}
+  description={`Browse all DevHub resources tagged "${tag}"`}
+>
+  <section class="tag-hero">
+    <div class="container">
+      <span class="tag-badge">🏷️ {tag}</span>
+      <h1>Resources tagged "{tag}"</h1>
+      <p>{resources.length} resource{resources.length !== 1 ? 's' : ''} found</p>
+    </div>
+  </section>
+
+  <section class="tag-resources section">
+    <div class="container">
+      {resources.length > 0 ? (
+        <div class="resources-grid">
+          {sortedResources.map(resource => (
+            <a href={`/resource/${resource.id}`} class="resource-card card">
+              <span class={`badge badge-${resource.category}`}>{resource.category}</span>
+              <h3>{resource.title}</h3>
+              <p>{resource.description}</p>
+              <div class="resource-meta">
+                <span class="author">by {resource.author}</span>
+                <div class="tags">
+                  {resource.tags.slice(0, 3).map(t => (
+                    <a href={`/tags/${t}`} class="tag">{t}</a>
+                  ))}
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="no-resources">
+          <p>No resources found with this tag.</p>
+          <a href="/browse" class="btn btn-primary">Browse all resources</a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="browse-all section">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Looking for more?</h2>
+        <p>Explore the full collection of community-curated resources.</p>
+        <div class="cta-actions">
+          <a href="/browse" class="btn btn-primary">Browse All Resources</a>
+          <a href="/browse?category=agent" class="btn btn-ghost">View Agents</a>
+          <a href="/browse?category=prompt" class="btn btn-ghost">View Prompts</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .tag-hero {
+    padding: 80px 0 40px;
+    text-align: center;
+    background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(34, 211, 238, 0.1), transparent);
+  }
+
+  .tag-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+  }
+
+  .tag-hero h1 {
+    margin-bottom: 12px;
+  }
+
+  .tag-hero p {
+    color: var(--text-muted);
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+
+  .resource-card {
+    display: block;
+    color: inherit;
+  }
+
+  .resource-card:hover {
+    color: inherit;
+  }
+
+  .resource-card h3 {
+    margin: 16px 0 12px;
+    font-size: 1.25rem;
+  }
+
+  .resource-card p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: 16px;
+  }
+
+  .resource-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .author {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    padding: 4px 8px;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+  }
+
+  .tag:hover {
+    color: var(--primary);
+    background: rgba(99, 102, 241, 0.1);
+  }
+
+  .no-resources {
+    text-align: center;
+    padding: 64px 24px;
+  }
+
+  .no-resources p {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .cta-box {
+    text-align: center;
+    padding: 48px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(34, 211, 238, 0.1));
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+  }
+
+  .cta-box h2 {
+    margin-bottom: 12px;
+  }
+
+  .cta-box p {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .resources-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-actions {
+      flex-direction: column;
+    }
+
+    .cta-actions .btn {
+      width: 100%;
+    }
+  }
+</style>
