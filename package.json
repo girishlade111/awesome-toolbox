@@ -1,11 +1,11 @@
 {
-  "name": "satellite-spiral",
+  "name": "awesome-list",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "node": ">=22.12.0"
   },
-  "scripts": {
+ scripts: {
     "dev": "astro dev",
     "build": "node scripts/validate-data.js && astro build",
     "preview": "astro preview",
