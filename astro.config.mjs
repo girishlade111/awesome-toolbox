@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   site: 'https://yourusername.github.io',
-  base: '/repository-name',
+  base: '/devhub',
   output: 'static',
   build: {
     format: 'file'
