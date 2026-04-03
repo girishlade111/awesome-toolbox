@@ -7,6 +7,7 @@ export default defineConfig({
   site: 'https://girishlade111.github.io',
   base: '/awesome-toolbox',
   output: 'static',
+  trailingSlash: 'always',
   build: {
     format: 'directory'
   },
