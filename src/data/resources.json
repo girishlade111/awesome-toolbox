@@ -1,0 +1,144 @@
+{
+  "resources": [
+    {
+      "id": "code-review-agent",
+      "title": "Code Review Agent",
+      "description": "An AI agent that performs comprehensive code reviews, checking for bugs, security issues, and best practices.",
+      "category": "agent",
+      "author": "devmaster",
+      "authorUrl": "https://github.com/devmaster",
+      "tags": ["review", "security", "quality"],
+      "url": "https://github.com/example/code-review-agent",
+      "addedAt": "2026-04-03"
+    },
+    {
+      "id": "system-prompt-engineer",
+      "title": "System Prompt Engineer",
+      "description": "A specialized prompt for optimizing system prompts to get better outputs from AI models.",
+      "category": "prompt",
+      "author": "promptwizard",
+      "authorUrl": "https://github.com/promptwizard",
+      "tags": ["optimization", "prompts", "engineering"],
+      "url": "https://github.com/example/prompt-engineer",
+      "addedAt": "2026-04-02"
+    },
+    {
+      "id": "security-scanner-plugin",
+      "title": "Security Scanner Plugin",
+      "description": "Plugin that scans your codebase for common security vulnerabilities and suggests fixes.",
+      "category": "plugin",
+      "author": "secpro",
+      "authorUrl": "https://github.com/secpro",
+      "tags": ["security", "scanning", "vulnerability"],
+      "url": "https://github.com/example/security-scanner",
+      "addedAt": "2026-04-01"
+    },
+    {
+      "id": "git-hooks-instructions",
+      "title": "Git Hooks Setup Instructions",
+      "description": "Special instructions for setting up automated git hooks to improve development workflow.",
+      "category": "instruction",
+      "author": "gitguru",
+      "authorUrl": "https://github.com/gitguru",
+      "tags": ["git", "automation", "workflow"],
+      "url": "https://github.com/example/git-hooks-guide",
+      "addedAt": "2026-03-30"
+    },
+    {
+      "id": "refactoring-assistant",
+      "title": "Refactoring Assistant",
+      "description": "An agent that helps refactor legacy code into modern, maintainable patterns.",
+      "category": "agent",
+      "author": "cleancode",
+      "authorUrl": "https://github.com/cleancode",
+      "tags": ["refactoring", "modernization", "maintenance"],
+      "url": "https://github.com/example/refactoring-assistant",
+      "addedAt": "2026-03-28"
+    },
+    {
+      "id": "documentation-generator",
+      "title": "Documentation Generator",
+      "description": "Automatically generates documentation from code comments and structure.",
+      "category": "plugin",
+      "author": "docsmith",
+      "authorUrl": "https://github.com/docsmith",
+      "tags": ["documentation", "automation", "生成"],
+      "url": "https://github.com/example/doc-generator",
+      "addedAt": "2026-03-25"
+    },
+    {
+      "id": "test-generator-prompt",
+      "title": "Test Generation Prompt",
+      "description": "Optimized prompt for generating comprehensive unit tests for any codebase.",
+      "category": "prompt",
+      "author": "testmaster",
+      "authorUrl": "https://github.com/testmaster",
+      "tags": ["testing", "unit-tests", "automation"],
+      "url": "https://github.com/example/test-generator-prompt",
+      "addedAt": "2026-03-20"
+    },
+    {
+      "id": "docker-setup-instructions",
+      "title": "Docker Setup Instructions",
+      "description": "Step-by-step instructions for setting up Docker containers for development environments.",
+      "category": "instruction",
+      "author": "devopspro",
+      "authorUrl": "https://github.com/devopspro",
+      "tags": ["docker", "devops", "setup"],
+      "url": "https://github.com/example/docker-setup",
+      "addedAt": "2026-03-18"
+    }
+  ],
+  "tutorials": [
+    {
+      "id": "getting-started-guide",
+      "title": "Getting Started with DevHub",
+      "description": "Learn the basics of using DevHub to enhance your development workflow. This beginner-friendly guide covers installation, configuration, and your first contribution.",
+      "difficulty": "beginner",
+      "duration": "15 min",
+      "category": "getting-started",
+      "author": "hubteam",
+      "url": "#"
+    },
+    {
+      "id": "creating-your-first-agent",
+      "title": "Creating Your First Custom Agent",
+      "description": "A step-by-step tutorial on building a custom AI agent tailored to your specific needs. Perfect for developers new to agent creation.",
+      "difficulty": "beginner",
+      "duration": "30 min",
+      "category": "tutorials",
+      "author": "agentdev",
+      "url": "#"
+    },
+    {
+      "id": "advanced-prompt-engineering",
+      "title": "Advanced Prompt Engineering Techniques",
+      "description": "Master the art of writing prompts that get the best results from AI models. Learn about chain-of-thought, few-shot learning, and more.",
+      "difficulty": "advanced",
+      "duration": "45 min",
+      "category": "advanced",
+      "author": "promptmaster",
+      "url": "#"
+    },
+    {
+      "id": "integrating-plugins",
+      "title": "Integrating Third-Party Plugins",
+      "description": "Learn how to find, install, and configure plugins to extend DevHub's functionality for your project.",
+      "difficulty": "intermediate",
+      "duration": "25 min",
+      "category": "integration",
+      "author": "pluginpro",
+      "url": "#"
+    },
+    {
+      "id": "contributing-to-community",
+      "title": "Contributing to the Community",
+      "description": "Everything you need to know about submitting your own resources to the DevHub community. From creating a good PR to following contribution guidelines.",
+      "difficulty": "beginner",
+      "duration": "20 min",
+      "category": "getting-started",
+      "author": "communitylead",
+      "url": "#"
+    }
+  ]
+}
