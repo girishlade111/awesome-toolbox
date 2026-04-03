@@ -65,9 +65,13 @@ Resources are stored in `src/data/resources.json`. To add a new resource:
 }
 ```
 
-3. Test your changes locally: `npm run dev`
-4. Commit and push your changes
-5. Open a Pull Request
+3. **Validate your data**: Run the validation script to ensure your JSON is correct:
+   ```bash
+   npm run validate
+   ```
+4. **Test your changes locally**: `npm run dev`
+5. **Commit and push your changes**
+6. **Open a Pull Request**
 
 #### Resource Guidelines
 
