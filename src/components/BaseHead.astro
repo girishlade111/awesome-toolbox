@@ -4,6 +4,7 @@ interface Props {
   description?: string;
   image?: string;
   canonicalURL?: URL;
+  jsonLd?: Record<string, any>;
 }
 
 const {
@@ -11,6 +12,7 @@ const {
   description = "A curated directory of community-built agents, prompts, plugins, and tutorials.",
   image = "/favicon.svg",
   canonicalURL = new URL(Astro.url.pathname, Astro.site),
+  jsonLd,
 } = Astro.props;
 ---
 
@@ -34,6 +36,8 @@ const {
 <meta property="og:title" content={`${title} | DevHub`} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:site_name" content="DevHub" />
+<meta property="og:locale" content="en_US" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
@@ -44,3 +48,11 @@ const {
 
 <!-- Theme color -->
 <meta name="theme-color" content="#6366f1" />
+
+<!-- Preload Fuse.js -->
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" defer></script>
+
+<!-- JSON-LD Structured Data -->
+{jsonLd && (
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+)}
