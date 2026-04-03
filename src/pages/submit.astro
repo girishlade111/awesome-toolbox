@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Submit">
+  <section class="submit-hero">
+    <div class="container">
+      <h1>Contribute</h1>
+      <p>Share your creations with the community</p>
+    </div>
+  </section>
+
+  <section class="submit-content section">
+    <div class="container">
+      <div class="submit-grid">
+        <div class="submit-info">
+          <h2>How to Contribute</h2>
+          <p>We welcome contributions from the community! Here's how you can add your own agents, prompts, instructions, and plugins to DevHub.</p>
+          
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h3>Fork the Repository</h3>
+                <p>Click the button below to fork the DevHub repository on GitHub.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h3>Add Your Resource</h3>
+                <p>Edit the <code>src/data/resources.json</code> file and add your resource following the existing format.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h3>Submit a Pull Request</h3>
+                <p>Push your changes and open a pull request. We'll review and merge your contribution!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="submit-actions">
+          <div class="action-card">
+            <h3>Quick Submit</h3>
+            <p>Don't want to edit JSON? You can also submit through GitHub Issues.</p>
+            <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              Fork on GitHub
+            </a>
+          </div>
+
+          <div class="action-card">
+            <h3>Open an Issue</h3>
+            <p>If you'd rather suggest a resource or report something, open an issue.</p>
+            <a href="https://github.com/issues" target="_blank" rel="noopener" class="btn btn-secondary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              Open Issue
+            </a>
+          </div>
+
+          <div class="action-card">
+            <h3>Contribution Guidelines</h3>
+            <p>Please ensure your contribution follows our guidelines.</p>
+            <ul class="guidelines-list">
+              <li>Resources must be original or properly licensed</li>
+              <li>Include a clear description</li>
+              <li>Add relevant tags</li>
+              <li>Test your resource before submitting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .submit-hero {
+    padding: 80px 0 40px;
+    text-align: center;
+    background: 
+      radial-gradient(ellipse 60% 40% at 50% 0%, rgba(16, 185, 129, 0.1), transparent);
+  }
+
+  .submit-hero h1 {
+    margin-bottom: 12px;
+  }
+
+  .submit-hero p {
+    color: var(--text-secondary);
+  }
+
+  .submit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .submit-info h2 {
+    margin-bottom: 16px;
+  }
+
+  .submit-info > p {
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .step {
+    display: flex;
+    gap: 16px;
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .step-content h3 {
+    font-size: 1.125rem;
+    margin-bottom: 4px;
+  }
+
+  .step-content p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+
+  .step-content code {
+    padding: 2px 6px;
+    background: var(--bg-surface);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    color: var(--accent);
+  }
+
+  .submit-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .action-card {
+    padding: 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+
+  .action-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 8px;
+  }
+
+  .action-card p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: 16px;
+  }
+
+  .btn svg {
+    flex-shrink: 0;
+  }
+
+  .guidelines-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .guidelines-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .guidelines-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success);
+  }
+
+  @media (max-width: 900px) {
+    .submit-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
