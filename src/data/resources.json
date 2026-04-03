@@ -62,7 +62,7 @@
       "category": "plugin",
       "author": "docsmith",
       "authorUrl": "https://github.com/docsmith",
-      "tags": ["documentation", "automation", "生成"],
+      "tags": ["documentation", "automation", "generator"],
       "url": "https://github.com/example/doc-generator",
       "addedAt": "2026-03-25"
     },
@@ -87,6 +87,83 @@
       "tags": ["docker", "devops", "setup"],
       "url": "https://github.com/example/docker-setup",
       "addedAt": "2026-03-18"
+    },
+    {
+      "id": "api-documentation-agent",
+      "title": "API Documentation Agent",
+      "description": "An intelligent agent that analyzes your codebase and generates comprehensive API documentation with examples.",
+      "category": "agent",
+      "author": "apimaster",
+      "authorUrl": "https://github.com/apimaster",
+      "tags": ["documentation", "api", "automation"],
+      "url": "https://github.com/example/api-docs-agent",
+      "addedAt": "2026-03-15"
+    },
+    {
+      "id": "code-optimization-prompt",
+      "title": "Code Optimization Prompt",
+      "description": "A powerful prompt that identifies performance bottlenecks and suggests optimized alternatives.",
+      "category": "prompt",
+      "author": "speeddev",
+      "authorUrl": "https://github.com/speeddev",
+      "tags": ["performance", "optimization", "best-practices"],
+      "url": "https://github.com/example/code-optimization-prompt",
+      "addedAt": "2026-03-12"
+    },
+    {
+      "id": "ci-cd-pipeline-instructions",
+      "title": "CI/CD Pipeline Setup Instructions",
+      "description": "Comprehensive guide for setting up continuous integration and deployment pipelines using modern tools.",
+      "category": "instruction",
+      "author": "cicdexpert",
+      "authorUrl": "https://github.com/cicdexpert",
+      "tags": ["ci-cd", "automation", "deployment"],
+      "url": "https://github.com/example/cicd-setup",
+      "addedAt": "2026-03-10"
+    },
+    {
+      "id": "dependency-manager-plugin",
+      "title": "Dependency Manager Plugin",
+      "description": "Plugin that automatically updates and manages your project dependencies, suggesting security patches.",
+      "category": "plugin",
+      "author": "pkgpro",
+      "authorUrl": "https://github.com/pkgpro",
+      "tags": ["dependencies", "automation", "security"],
+      "url": "https://github.com/example/dependency-manager",
+      "addedAt": "2026-03-08"
+    },
+    {
+      "id": "debugging-assistant-agent",
+      "title": "Debugging Assistant Agent",
+      "description": "An AI-powered debugging tool that helps identify and fix bugs by analyzing stack traces and code patterns.",
+      "category": "agent",
+      "author": "debugking",
+      "authorUrl": "https://github.com/debugking",
+      "tags": ["debugging", "troubleshooting", "analysis"],
+      "url": "https://github.com/example/debugging-assistant",
+      "addedAt": "2026-03-05"
+    },
+    {
+      "id": "architecture-review-prompt",
+      "title": "Architecture Review Prompt",
+      "description": "A structured prompt for evaluating software architecture and suggesting improvements for scalability.",
+      "category": "prompt",
+      "author": "archguru",
+      "authorUrl": "https://github.com/archguru",
+      "tags": ["architecture", "review", "scalability"],
+      "url": "https://github.com/example/architecture-review",
+      "addedAt": "2026-03-01"
+    },
+    {
+      "id": "kubernetes-deployment-guide",
+      "title": "Kubernetes Deployment Instructions",
+      "description": "Step-by-step instructions for deploying applications to Kubernetes with best practices and monitoring.",
+      "category": "instruction",
+      "author": "k8smaster",
+      "authorUrl": "https://github.com/k8smaster",
+      "tags": ["kubernetes", "deployment", "devops"],
+      "url": "https://github.com/example/k8s-deployment",
+      "addedAt": "2026-02-25"
     }
   ],
   "tutorials": [
