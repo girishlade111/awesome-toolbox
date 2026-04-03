@@ -1,43 +1,91 @@
-# Astro Starter Kit: Minimal
+# DevHub - Developer Tool Community Hub
 
-```sh
-npm create astro@latest -- --template minimal
+A community-driven collection of resources for developers, featuring agents, prompts, instructions, and plugins.
+
+## Features
+
+- **Resource Catalog** - Searchable collection of community-contributed tools
+- **Learning Hub** - Tutorials and guides for all skill levels
+- **Multiple Categories** - Agents, Prompts, Instructions, and Plugins
+- **Filter & Search** - Find exactly what you need with powerful filters
+
+## Tech Stack
+
+- [Astro](https://astro.build) - Static site generator
+- Vanilla CSS with custom properties
+- GitHub Pages for hosting
+
+## Getting Started
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/devhub.git
+   cd devhub
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+## Project Structure
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── data/
+│   │   └── resources.json    # Resource data
+│   ├── layouts/
+│   │   └── Layout.astro     # Main layout
+│   ├── pages/
+│   │   ├── index.astro     # Home page
+│   │   ├── browse.astro    # Browse resources
+│   │   ├── learn.astro     # Learning hub
+│   │   └── submit.astro    # Contribution page
+│   ├── styles/
+│   │   └── global.css      # Global styles
+│   └── types.ts            # TypeScript types
+├── public/                       # Static assets
+├── .github/workflows/            # GitHub Actions
+└── SPEC.md                       # Project specification
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Adding Resources
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+To add a new resource, edit `src/data/resources.json`:
 
-Any static assets, like images, can be placed in the `public/` directory.
+```json
+{
+  "id": "unique-id",
+  "title": "Resource Name",
+  "description": "Short description",
+  "category": "agent|prompt|instruction|plugin",
+  "author": "GitHub username",
+  "authorUrl": "https://github.com/username",
+  "tags": ["tag1", "tag2"],
+  "url": "https://link-to-resource",
+  "addedAt": "2026-04-03"
+}
+```
 
-## 🧞 Commands
+## Deployment
 
-All commands are run from the root of the project, from a terminal:
+The site is configured to deploy automatically to GitHub Pages via GitHub Actions.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+1. Update `astro.config.mjs` with your GitHub username and repository name
+2. Push to main branch
+3. Enable GitHub Pages in repository settings (select "GitHub Actions")
+4. The workflow will deploy automatically
 
-## 👀 Want to learn more?
+## License
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+MIT License - See LICENSE file for details.
