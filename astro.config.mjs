@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://yourusername.github.io/devhub',
+  site: 'https://yourusername.github.io',
   base: '/devhub',
   output: 'static',
   build: {
