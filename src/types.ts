@@ -18,6 +18,24 @@ export interface Tutorial {
   duration: string;
   category: 'getting-started' | 'advanced' | 'integration';
   url: string;
+  author?: string;
+}
+
+export interface Collection {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  color: string;
+  resourceIds: string[];
+  featured?: boolean;
+}
+
+export interface Author {
+  username: string;
+  url: string;
+  resourceCount: number;
+  joinedAt: string;
 }
 
 export const categories = [
