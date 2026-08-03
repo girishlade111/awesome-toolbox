@@ -45,7 +45,7 @@ const topAuthors = Object.entries(authorCounts)
           <span class="stat-label">Resources</span>
         </div>
         <div class="stat">
-          <span class="stat-number">{resourcesData.tutorials.length}</span>
+          <span class="stat-number">{allTutorials.length}</span>
           <span class="stat-label">Tutorials</span>
         </div>
         <div class="stat">
@@ -89,7 +89,7 @@ const topAuthors = Object.entries(authorCounts)
             <h3>{resource.title}</h3>
             <p>{resource.description}</p>
             <div class="resource-meta">
-              <a href={`/author/${resource.author}`} class="author">by {resource.author}</a>
+              <a href={resource.authorUrl} target="_blank" rel="noopener" class="author">by {resource.author}</a>
               <div class="tags">
                 {resource.tags.slice(0, 3).map(tag => (
                   <span class="tag">{tag}</span>
@@ -110,7 +110,7 @@ const topAuthors = Object.entries(authorCounts)
       </div>
       <div class="authors-grid">
         {topAuthors.map(([username, data]) => (
-          <a href={`/author/${username}`} class="author-card card">
+          <a href={data.url} target="_blank" rel="noopener" class="author-card card">
             <div class="author-avatar">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>

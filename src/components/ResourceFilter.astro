@@ -625,7 +625,7 @@ const { resources } = Astro.props;
           <h3>${resource.title}</h3>
           <p>${resource.description}</p>
           <div class="resource-item-meta">
-            <span class="resource-item-author">by <a href="/author/${resource.author}" target="_blank" rel="noopener">${resource.author}</a></span>
+            <span class="resource-item-author">by <a href="${resource.authorUrl}" target="_blank" rel="noopener">${resource.author}</a></span>
             <div class="resource-item-tags">
               ${resource.tags.slice(0, 3).map(tag => `<span class="resource-item-tag">${tag}</span>`).join('')}
             </div>
