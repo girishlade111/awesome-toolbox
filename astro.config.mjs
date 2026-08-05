@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
+import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://girishlade111.github.io',
@@ -11,7 +12,7 @@ export default defineConfig({
   build: {
     format: 'directory'
   },
-  integrations: [mdx(), sitemap()],
+  integrations: [react(), mdx(), sitemap()],
   markdown: {
     shikiConfig: {
       theme: 'github-dark',

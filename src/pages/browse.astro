@@ -1,80 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import resourcesData from '../data/resources.json';
-import ResourceFilter from '../components/ResourceFilter.astro';
+import { ResourceExplorer } from '../components/ui/ResourceExplorer.tsx';
 
-const ITEMS_PER_PAGE = 12;
-const totalPages = Math.ceil(resourcesData.resources.length / ITEMS_PER_PAGE);
+const initialCategory = Astro.url.searchParams.get('category') || '';
+const allTags = [...new Set(resourcesData.resources.flatMap((r) => r.tags))].sort();
 ---
 
-<Layout 
-  title="Browse Resources"
-  description="Search and filter the complete collection of community-curated resources."
->
-  <section class="browse-hero">
+<Layout title="Browse Resources" description="Search and filter the complete collection of community-curated AI resources.">
+  <section class="dh-page-hero">
     <div class="container">
+      <span class="dh-eyebrow">Explore</span>
       <h1>Browse Resources</h1>
-      <p>Find the perfect agent, prompt, instruction, or plugin for your needs</p>
-      <div class="stats">
-        <span class="stat-item">
-          <strong>{resourcesData.resources.length}</strong> resources
-        </span>
-        <span class="stat-item">
-          <strong>{[...new Set(resourcesData.resources.flatMap(r => r.tags))].length}</strong> tags
-        </span>
-        <span class="stat-item">
-          <strong>{[...new Set(resourcesData.resources.map(r => r.author))].length}</strong> contributors
-        </span>
-      </div>
+      <p>Search {resourcesData.resources.length} community-curated agents, prompts, instructions, plugins, and workflows.</p>
     </div>
   </section>
 
-  <section class="browse-content section">
-    <div class="container">
-      <ResourceFilter resources={resourcesData.resources} />
-    </div>
+  <section class="section container">
+    <ResourceExplorer
+      client:load
+      resources={resourcesData.resources}
+      initialCategory={initialCategory}
+      allTags={allTags}
+    />
   </section>
 </Layout>
 
 <style>
-  .browse-hero {
-    padding: 80px 0 40px;
+  .dh-page-hero {
+    padding: 90px 0 30px;
     text-align: center;
-    background:
-      radial-gradient(ellipse 60% 40% at 50% 0%, rgba(99, 102, 241, 0.1), transparent);
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(99, 102, 241, 0.12), transparent);
   }
-
-  .browse-hero h1 {
-    margin-bottom: 12px;
-  }
-
-  .browse-hero p {
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-  }
-
-  .stats {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-
-  .stat-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.875rem;
-    color: var(--text-muted);
-  }
-
-  .stat-item strong {
-    color: var(--primary);
-    font-size: 1.25rem;
-    font-weight: 700;
-  }
-
-  .browse-content {
-    min-height: 60vh;
-  }
+  .dh-page-hero h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 12px; }
+  .dh-page-hero p { color: var(--text-secondary); max-width: 560px; margin: 0 auto; }
 </style>
