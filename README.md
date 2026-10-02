@@ -392,3 +392,7 @@ MIT License - See [LICENSE](LICENSE) file for details.
 ---
 
 *Built with Astro and modern web technologies.*
+
+---
+
+Built by Girish Lade — https://ladestack.in
